@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiểm tra đăng nhập</title>
+    <script>
+        function checkLogin() {
+            // Lấy giá trị từ ô nhập liệu tên
+            const username = document.getElementById("usernameInput").value;
+            if (username === "Admin") {
+                // Yêu cầu người dùng nhập mật khẩu
+                const password = prompt("Nhập mật khẩu:");
+                if (password === "TheMaster") {
+                    document.getElementById("result").innerText = "Welcome!";
+                } else if (password === null) {
+                    document.getElementById("result").innerText = "Canceled.";
+                } else {
+                    document.getElementById("result").innerText = "Wrong password.";
+                }
+            } else if (username === null || username === "") {
+                document.getElementById("result").innerText = "Canceled.";
+            } else {
+                document.getElementById("result").innerText = "I don’t know you.";
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Kiểm tra đăng nhập</h1>
+    <label for="usernameInput">Nhập tên:</label>
+    <input type="text" id="usernameInput" placeholder="Tên đăng nhập">
+    <button onclick="checkLogin()">Đăng nhập</button>
+    <p id="result"></p>
+</body>
+</html>
